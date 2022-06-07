@@ -26,7 +26,7 @@ const createBidResponseId = (publisherId, appId = null, ts = new Date().valueOf(
   return encrypt(plainId, ENCRYPTION_KEY);
 }
 
-app.get("/", async (req, res) => {
+app.post("/", async (req, res) => {
   try {
     const key = findRandom(4);
     const resp = await redisClient.get(`${key}`);
